@@ -1,0 +1,46 @@
+
+header nav {
+    box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
+}
+
+header nav:before {
+    content: '';
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(#000), to(#000), color-stop(50%, white));
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 2px;
+    right: 4px;
+    animation: blinker 3s linear infinite
+}
+
+header nav:after {
+    content: '';
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(#000), to(#000), color-stop(50%, white));
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    height: 1px;
+    left: 15%;
+    animation: blinker 3s linear infinite
+}
+
+@media screen and (max-width: 991px) {
+    header nav:after {
+        display: none
+    }
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: .5
+    }
+
+    100% {
+        opacity: 1
+    }
+}

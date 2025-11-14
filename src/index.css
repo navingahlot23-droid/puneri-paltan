@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* ------------------------------------
+   THEME (Tailwind v4 – replaces config.js)
+------------------------------------- */
+@theme {
+  /* Colors */
+  --color-primary-500: oklch(0.72 0.19 48.62);
+
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 1;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: #000
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 50px
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-500);
+    border-radius: 50px
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e66900
+}
+
+
+
+
