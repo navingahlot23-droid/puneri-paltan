@@ -85,7 +85,7 @@ export default function Header() {
                 </div>
                 <PopoverGroup className="hidden lg:flex lg:gap-x-5 lg:transform lg:skew-x-18">
                     {navigation.map((item) => (
-                        <NavLink key={item.name} to={item.href} target={item.target} className={({ isActive }) => isActive ? 'tracking-[3px] capitalize text-[15px] italic text-primary-500 text-center font-[Exo] font-semibold transition-all duration-500 ease-out' : 'tracking-[3px] capitalize text-[15px] italic text-white hover:text-primary-500 text-center font-[Exo] font-semibold transition-all duration-500 ease-out'}>
+                        <NavLink key={item.name} to={item.href} target={item.target} className={({ isActive }) => isActive ? 'tracking-[3px] capitalize text-[15px] italic text-primary-500 text-center font-[Exo-SemiBold] transition-all duration-500 ease-out' : 'tracking-[3px] capitalize text-[15px] italic text-white hover:text-primary-500 text-center font-[Exo-SemiBold] transition-all duration-500 ease-out'}>
                             {item.name}
                         </NavLink>
                     ))}
@@ -106,7 +106,7 @@ export default function Header() {
                     </div>
                     <div className='flex flex-col items-center gap-6'>
                         {navigation.map((item) => (
-                            <NavLink onClick={() => setMobileMenuOpen(false)} key={item.name} to={item.href} target={item.target} className={({ isActive }) => isActive ? 'tracking-[3px] capitalize text-[15px] italic text-primary-500 font-[Exo] font-semibold transition-all duration-500 ease-out' : 'tracking-[3px] capitalize text-[15px] italic text-white hover:text-primary-500 font-[Exo] font-semibold transition-all duration-500 ease-out'}>
+                            <NavLink onClick={() => setMobileMenuOpen(false)} key={item.name} to={item.href} target={item.target} className={({ isActive }) => isActive ? 'tracking-[3px] capitalize text-[15px] italic text-primary-500 font-[Exo-SemiBold] transition-all duration-500 ease-out' : 'tracking-[3px] capitalize text-[15px] italic text-white hover:text-primary-500 font-[Exo-SemiBold] transition-all duration-500 ease-out'}>
                                 {item.name}
                             </NavLink>
                         ))}

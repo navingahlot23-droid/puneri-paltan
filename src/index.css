@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 /* ------------------------------------
    THEME (Tailwind v4 – replaces config.js)
@@ -8,7 +10,40 @@
   --color-primary-500: oklch(0.72 0.19 48.62);
 
 }
+@font-face {
+    font-family: Love-Nature;
+    src: url(../src/fonts/Love-Nature.otf)
+}
 
+@font-face {
+    font-family: Exo-Light;
+    src: url(../src/fonts/Exo/Exo-Light.ttf)
+}
+
+@font-face {
+    font-family: Exo-Regular;
+    src: url(../src/fonts/Exo/Exo-Regular.ttf)
+}
+
+@font-face {
+    font-family: Exo-Bold;
+    src: url(../src/fonts/Exo/Exo-Bold.ttf)
+}
+
+@font-face {
+    font-family: Exo-SemiBold;
+    src: url(../src/fonts/Exo/Exo-SemiBold.ttf)
+}
+
+@font-face {
+    font-family: Exo-Medium;
+    src: url(../src/fonts/Exo/Exo-Medium.ttf)
+}
+
+@font-face {
+    font-family: Lato-Black;
+    src: url(../src/fonts/Lato-Black.ttf)
+}
 body {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;

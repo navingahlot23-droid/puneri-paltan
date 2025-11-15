@@ -1,0 +1,115 @@
+/* Player Slider Section */
+.player-section .slick-slide {
+  padding-left: 10px;
+}
+
+.player-section .slick-slide:focus {
+  border: transparent;
+  outline: transparent;
+}
+
+.player-section .slick-list {
+  transform: translateY(0);
+}
+
+.player-section .slick-prev:before,
+.player-section .slick-next:before {
+  font-size: 28px;
+}
+
+.player-section .slick-prev,
+.player-section .slick-next {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  top: auto;
+  z-index: 999;
+}
+.player-section .slick-prev {
+  right: 60px;
+  left: auto;
+}
+
+.player-section .slick-prev:focus {
+  outline: transparent;
+}
+
+.player-section .slick-next {
+  right: 0;
+}
+
+.player-section .slick-next:focus {
+  outline: transparent;
+}
+
+.player-section .player-box .name {
+  color: #fff;
+  font-size: 22px;
+  font-family: Exo-Regular;
+}
+
+.player-section .player-box img {
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: all 900ms ease-in;
+}
+.player-section .player-box .position {
+  opacity: 0;
+  font-size: 22px;
+  transition: all 0.8s ease-in;
+}
+.player-section .slick-current .player-box .name {
+  font-size: 40px;
+  font-family: Exo-Bold;
+}
+.player-section .slick-current .player-box .position {
+  opacity: 1;
+  font-size: 20px;
+}
+.player-section .slick-current .player-box img {
+  -moz-transform: scale(1.06);
+  -ms-transform: scale(1.06);
+  -o-transform: scale(1.06);
+  -webkit-transform: scale(1.06);
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.player-section .player-box .player-details {
+  margin-top: -54px;
+  z-index: 99;
+  position: relative;
+}
+
+.player-section .slick-current .player-box .player-details {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .slick-track {
+    display: flex !important;
+  }
+
+  .slick-slide {
+    height: inherit !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .player-section .slick-slide {
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .player-section .slick-slide {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .player-section .slick-prev {
+    right: 50%;
+  }
+  .player-section .slick-next {
+    right: 35%;
+  }
+}
