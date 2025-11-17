@@ -7,26 +7,30 @@ import Header from "./components/Header"
 import Home from "./pages/Home"
 import Players from "./pages/Players"
 import Standings from "./pages/Standings"
-import PaltanWorld from "./pages/PaltanWorld"
+import Fixtures from "./pages/Fixtures";
+import PuneriWorld from "./pages/PuneriWorld";
+import Footer from "./components/Footer";
 
 function App() {
   useEffect(() => {
     AOS.init({
       duration: 1000, // animation duration in ms
-     // once: true, // whether animation should happen only once
+      // once: true, // whether animation should happen only once
     });
   }, []);
 
   return (
     <>
-      <Header/>
+      <Header />
       <Routes>
-        <Route index element = {<Home/>} />
-        <Route path="/" element = {<Home/>} />
-        <Route path="/players" element = {<Players/>} />
-        <Route path="/standings" element = {<Standings/>} />
-        <Route path="/paltan-world" element = {<PaltanWorld/>} />
+        <Route index element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/players" element={<Players />} />
+        <Route path="/standings" element={<Standings />} />
+        <Route path="/fixtures" element={<Fixtures />} />
+        <Route path="/puneri-world" element={<PuneriWorld />} />
       </Routes>
+      <Footer />
     </>
   )
 }

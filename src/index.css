@@ -55,6 +55,7 @@ body {
     padding: 0;
     font-size: 15px;
     line-height: 1;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {

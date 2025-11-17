@@ -27,8 +27,13 @@ export default function Header() {
             target: "_self"
         },
         {
+            name: 'Fixtures',
+            href: '/fixtures',
+            target: "_self"
+        },
+        {
             name: 'Paltan World',
-            href: '/paltan-world',
+            href: '/puneri-world',
             target: "_self"
         },
         {
@@ -43,29 +48,39 @@ export default function Header() {
 
     useEffect(() => {
         let lastScroll = window.scrollY;
-
-        const handleScroll = () => {
+        let ticking = false;
+    
+        const updateScrollDirection = () => {
             const currentScroll = window.scrollY;
-
-            if (currentScroll > lastScroll) {
-                setScrollDirection("down");
-            } else {
-                setScrollDirection("up");
+    
+            if (Math.abs(currentScroll - lastScroll) < 10) {
+                ticking = false;
+                return; // ignore small scroll movements
             }
-
-            lastScroll = currentScroll <= 0 ? 0 : currentScroll; // prevent negative
+    
+            setScrollDirection(currentScroll > lastScroll ? "down" : "up");
+            lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+            ticking = false;
         };
-
+    
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateScrollDirection);
+                ticking = true;
+            }
+        };
+    
         window.addEventListener("scroll", handleScroll);
-
         return () => window.removeEventListener("scroll", handleScroll);
+    
     }, []);
+    
 
     return (
         <header className={`header w-full fixed z-99 mx-auto transition-all duration-500 ease-in ${scrollDirection === "down" ? "nav-up top-[-150px]" : "nav-down  top-5 md:top-[30px]"}`}>
             <nav aria-label="Global" className="lg:skew-x-[-15deg] lg:transform bg-black/30 w-[90%]  h-[70px] md:h-[100px] relative mx-auto flex items-center  md:p-4 lg:gap-42 justify-between lg:justify-start max-[767px]:w-[95%]">
                 <div className='lg:transform lg:skew-x-18'>
-                    <Link to="/" className="mt-[-30px] md:mt-[-37px] md:p-1.5 h-[70px] md:h-[100px]">
+                    <Link to="/" className="mt-[-30px] md:mt-[-75px] md:p-[15px] md:ml-[30px] h-[70px] md:h-[100px] block">
                         <span className="sr-only">Puneri Paltan</span>
                         <img
                             alt="Puneri Paltan Logo"
@@ -93,7 +108,7 @@ export default function Header() {
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 {/* <div className="fixed inset-0 z-50" /> */}
-                <DialogPanel className="fixed top-0 left-0 w-full h-full z-100 overflow-y-auto bg-black p-6">
+                <DialogPanel className="fixed top-0 left-0 w-full h-full z-999 overflow-y-auto bg-black p-6">
                     <div className="text-right">
                         <button
                             type="button"
@@ -104,7 +119,7 @@ export default function Header() {
                             <XMarkIcon aria-hidden="true" className="size-6" />
                         </button>
                     </div>
-                    <div className='flex flex-col items-center gap-6'>
+                    <div className='flex flex-col items-center gap-6 mt-[50px]'>
                         {navigation.map((item) => (
                             <NavLink onClick={() => setMobileMenuOpen(false)} key={item.name} to={item.href} target={item.target} className={({ isActive }) => isActive ? 'tracking-[3px] capitalize text-[15px] italic text-primary-500 font-[Exo-SemiBold] transition-all duration-500 ease-out' : 'tracking-[3px] capitalize text-[15px] italic text-white hover:text-primary-500 font-[Exo-SemiBold] transition-all duration-500 ease-out'}>
                                 {item.name}
