@@ -23,8 +23,8 @@ export default function Footer() {
                         </div>
                         <div>
                             <Link to="https://digitallatte.in/" target="_blank">
-                                <div class="flex flex-nowrap md:justify-end justify-center scale-[0.7]">
-                                    <div class="made-by-text text-right mr-[5px]">
+                                <div className="flex flex-nowrap md:justify-end justify-center scale-[0.7]">
+                                    <div className="made-by-text text-right mr-[5px]">
                                         <p className="text-white font-[Lato-Black] bg-[#ff7500] mb-[3px] px-2 py-0.5 rounded-[3px] tracking-[2px] text-[11px] uppercase">Managed</p>
                                         <p className="text-white inline font-[Lato-Black] bg-[#ff7500] mb-[3px] px-2 py-0.5 rounded-[3px] tracking-[2px] text-[11px] uppercase">By</p>
                                     </div>

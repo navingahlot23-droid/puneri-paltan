@@ -14,54 +14,68 @@ import NS from "../assets/navitas_sponsor.webp"
 import paras from "../assets/paras.webp"
 import better from "../assets/better.webp"
 import shivnaresh from "../assets/shivnaresh-logo.webp"
+import heroDesktop from '../assets/home-banner-new-design-s12.webp'
+import heromobile from '../assets/homepage-mobile-banner-s12.webp'
 import Slider from "react-slick";
 import PlayerCard from "../components/PlayerCard";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllPlayers } from "../redux/action/player.action";
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 import { ChevronRightIcon } from '@heroicons/react/24/outline'
 
+const getBreakpoint = () => {
+    const width = window.innerWidth;
+    if (width < 640) return "mobile";
+    if (width < 768) return "sm";
+    return "md";
+};
+
 export default function Home() {
     const dispatch = useDispatch();
     const { allPlayers } = useSelector((state) => state.players);
+
+    const [bp, setBp] = useState(getBreakpoint());
+
+    const isMD = bp === "md";
+    const isSM = bp === "sm";
+    
 
     useEffect(() => {
         dispatch(fetchAllPlayers());
     }, []);
 
-    const settings = {
-
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    swipeToSlide: true,
-                    autoplay: false,
-                    arrows: false,
-                }
-            },
-            {
-                breakpoint: 320,
-                settings: {
-                    slidesToShow: 1,
-                    swipeToSlide: true,
-                    autoplay: false,
-                    arrows: false,
-                }
+    useEffect(() => {
+        const handleResize = () => {
+            const current = getBreakpoint();
+            if (current !== bp) {
+                setBp(current); // only update when breakpoint changes
             }
-        ]
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [bp]);
+
+  
+    const settings = {
+      infinite: true,
+      speed: 500,
+      
+      slidesToShow: isMD ? 3 : isSM ? 2 : 1,
+    
+      swipeToSlide: isMD ? false : true,
+    
+      autoplay: isMD ? true : false,
+
+      arrows: isMD ? true : false,
+    
+      slidesToScroll: 1,
     };
 
     return (
         <>
-            <Herosection />
+            <Herosection imgSRCDesktop={heroDesktop} imgSRCMobile={heromobile} />
             <section className="wrapper relative bg-top bg-no-repeat overflow-hidden" style={{ backgroundImage: `url(${wrapperBG})` }}>
                 <div className="intro-section text-center relative">
                     <div className="grid grid-cols-1">
@@ -82,7 +96,7 @@ export default function Home() {
                             <h1 className="text-primary-500 text-[40px] md:text-[50px] lg:text-[60px] xl:text-[90px] uppercase tracking-[7px] font-[Love-Nature] mb-5 mt-5 md:mt-0 md:mb-10" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">Players</h1>
                         </div>
                         <div className="lg:col-span-8  col-span-12">
-                            <Slider {...settings} className='mb-10'>
+                            <Slider key={bp} {...settings} className='mb-10'>
                                 {allPlayers?.map((p) => (
                                     <div key={p.id}>
                                         <PlayerCard
@@ -189,29 +203,29 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='flex flex-nowrap gap-[15px] justify-center'>
-                                    <div className='partner-logos pt-[30px] md:w-[16.66666667%]'>
-                                        <Link to="https://parasbuildtech.com/" target='_blank'>
-                                            <img src={paras} alt="Paras  Buildtech" />
-                                            <p className='font-[Exo-Light] text-[16px] text-black text-center tracking-[2px] m-0 pt-5'> CO-Partner</p>
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className='flex flex-nowrap gap-[15px] justify-center'>
-                                    <div className='partner-logos pt-[30px] md:w-[16.66666667%]'>
-                                        <Link to="https://betteralt.in/" target='_blank'>
-                                            <img src={better} alt="Bellteralt Logo" />
-                                            <p className='font-[Exo-Light] text-[16px] text-black text-center tracking-[2px] m-0 pt-5'> Wellness Partner</p>
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className='flex flex-nowrap gap-[15px] justify-center'>
-                                    <div className='partner-logos pt-[30px] md:w-[16.66666667%]'>
-                                        <Link to="https://shivnaresh.in/" target='_blank'>
-                                            <img src={shivnaresh} alt="Shivnaresh Logo" />
-                                            <p className='font-[Exo-Light] text-[16px] text-black text-center tracking-[2px] m-0 pt-5'> Kit Partner</p>
-                                        </Link>
-                                    </div>
-                                </div>
+                            <div className='partner-logos pt-[30px] md:w-[16.66666667%]'>
+                                <Link to="https://parasbuildtech.com/" target='_blank'>
+                                    <img src={paras} alt="Paras  Buildtech" />
+                                    <p className='font-[Exo-Light] text-[16px] text-black text-center tracking-[2px] m-0 pt-5'> CO-Partner</p>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className='flex flex-nowrap gap-[15px] justify-center'>
+                            <div className='partner-logos pt-[30px] md:w-[16.66666667%]'>
+                                <Link to="https://betteralt.in/" target='_blank'>
+                                    <img src={better} alt="Bellteralt Logo" />
+                                    <p className='font-[Exo-Light] text-[16px] text-black text-center tracking-[2px] m-0 pt-5'> Wellness Partner</p>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className='flex flex-nowrap gap-[15px] justify-center'>
+                            <div className='partner-logos pt-[30px] md:w-[16.66666667%]'>
+                                <Link to="https://shivnaresh.in/" target='_blank'>
+                                    <img src={shivnaresh} alt="Shivnaresh Logo" />
+                                    <p className='font-[Exo-Light] text-[16px] text-black text-center tracking-[2px] m-0 pt-5'> Kit Partner</p>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
