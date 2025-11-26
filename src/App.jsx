@@ -6,10 +6,11 @@ import { useEffect } from "react";
 import Header from "./components/Header"
 import Home from "./pages/Home"
 import Players from "./pages/Players"
-import Standings from "./pages/Standings"
-import Fixtures from "./pages/Fixtures";
 import PuneriWorld from "./pages/PuneriWorld";
 import Footer from "./components/Footer";
+import SinglePlayer from "./pages/SinglePlayer";
+import PuneriTV from "./pages/PuneriTV";
+import Gallery from "./pages/Gallery";
 
 function App() {
   useEffect(() => {
@@ -26,9 +27,10 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/players" element={<Players />} />
-        <Route path="/standings" element={<Standings />} />
-        <Route path="/fixtures" element={<Fixtures />} />
+        <Route path="/players/:id" element={<SinglePlayer />} />
         <Route path="/puneri-world" element={<PuneriWorld />} />
+        <Route path="/puneri-tv" element={<PuneriTV />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
       <Footer />
     </>

@@ -1,42 +1,28 @@
-import Slider from "react-slick";
-import { useEffect, useState } from "react";
-
-const getBreakpoint = () => {
-  const width = window.innerWidth;
-  if (width < 640) return "mobile";
-  if (width < 768) return "sm";
-  return "md";
-};
+import Herosection from "../components/HeroSection"
+import { Link } from "react-router-dom"
+import paltanWorldDesktop from "../assets/paltan-world-homepage_s12.png"
+import paltanWorldMobile from "../assets/paltan-world-banner-mobile_s12.png"
+import tvBG from "../assets/tv-s12.png"
+import galleryBG from "../assets/gallery-s12.png"
 
 export default function PuneriWorld() {
-  const [bp, setBp] = useState(getBreakpoint());
-
-  useEffect(() => {
-    const handleResize = () => {
-      const current = getBreakpoint();
-      if (current !== bp) {
-        setBp(current); // only update when breakpoint changes
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [bp]);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow:
-      bp === "md" ? 3 :
-      bp === "sm" ? 2 :
-      1,
-  };
-
   return (
-    <Slider key={bp} {...settings}>
-      <div>Slide 1</div>
-      <div>Slide 2</div>
-      <div>Slide 3</div>
-      <div>Slide 4</div>
-    </Slider>
-  );
+    <>
+      <Herosection imgSRCDesktop={paltanWorldDesktop} imgSRCMobile={paltanWorldMobile} />
+      <div className="flex lg:flex-nowrap max-[767px]:flex-col">
+        <div className="relative lg:w-1/2">
+          <Link to="/puneri-tv">
+            <img src={tvBG} alt="Puneri TV" />
+            <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-[Love-Nature] tracking-[6px] text-white m-0 text-[45px] lg:text-[70px] leading-[110%] w-full text-center">Puneri TV</h1>
+          </Link>
+        </div>
+        <div className="relative lg:w-1/2">
+          <Link to="/gallery">
+            <img src={galleryBG} alt="Gallery" />
+            <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-[Love-Nature] tracking-[6px] text-white m-0 text-[45px] lg:text-[70px] leading-[110%]] w-full text-center">Gallery</h1>
+          </Link>
+        </div>
+      </div>
+    </>
+  )
 }

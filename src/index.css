@@ -58,21 +58,21 @@ body {
     height: 100%;
 }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
     width: 5px;
     background: #000
 }
 
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     border-radius: 50px
 }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     background: var(--color-primary-500);
     border-radius: 50px
 }
 
-::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover {
     background: #e66900
 }
 

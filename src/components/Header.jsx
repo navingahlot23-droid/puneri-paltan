@@ -23,12 +23,12 @@ export default function Header() {
         },
         {
             name: 'Standings',
-            href: '/standings',
+            href: 'javascript:void(0)',
             target: "_self"
         },
         {
             name: 'Fixtures',
-            href: '/fixtures',
+            href: 'javascript:void(0)',
             target: "_self"
         },
         {

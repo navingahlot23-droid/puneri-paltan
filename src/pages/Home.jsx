@@ -40,7 +40,7 @@ export default function Home() {
 
     const isMD = bp === "md";
     const isSM = bp === "sm";
-    
+
 
     useEffect(() => {
         dispatch(fetchAllPlayers());
@@ -57,20 +57,20 @@ export default function Home() {
         return () => window.removeEventListener("resize", handleResize);
     }, [bp]);
 
-  
-    const settings = {
-      infinite: true,
-      speed: 500,
-      
-      slidesToShow: isMD ? 3 : isSM ? 2 : 1,
-    
-      swipeToSlide: isMD ? false : true,
-    
-      autoplay: isMD ? true : false,
 
-      arrows: isMD ? true : false,
-    
-      slidesToScroll: 1,
+    const settings = {
+        infinite: true,
+        speed: 500,
+
+        slidesToShow: isMD ? 3 : isSM ? 2 : 1,
+
+        swipeToSlide: isMD ? false : true,
+
+        autoplay: isMD ? true : false,
+
+        arrows: isMD ? true : false,
+
+        slidesToScroll: 1,
     };
 
     return (
@@ -81,7 +81,7 @@ export default function Home() {
                     <div className="grid grid-cols-1">
                         <div className="absolute h-[210px] w-0.5  bg-white z-9 max-[767px]:h-[120px] max-[767px]:top-[10%] md:h-[200px] md:top-[70px] lg:top-[15%]  left-[50%] top-[17%] transform -translate-x-1/2"></div>
 
-                        <div className="absolute max-[767px]:left-[56.8%] max-[767px]:top-[15%] max-[767px]:tracking-[36px] max-[767px]:text-[18px] md:left-[54%] md:top-[26%] lg:left-[53%] lg: top[30%] xl:top-[19%] xl:left-[52%] transform -translate-x-1/2 text-white tracking-[65px] uppercase 
+                        <div className="absolute max-[767px]:left-[54.8%] max-[767px]:top-[15%] max-[767px]:tracking-[36px] max-[767px]:text-[18px] md:left-[54%] md:top-[26%] lg:left-[53%] lg: top[30%] xl:top-[19%] xl:left-[52%] transform -translate-x-1/2 text-white tracking-[65px] uppercase 
                     text-[20px] font-[Exo-Light] mt-[7.5px] mb-1.5 w-max">scroll</div>
 
                         <div className="flex items-baseline-last  text-center h-[600px] xl:h-screen w-full" data-aos="fade-up">
@@ -100,6 +100,7 @@ export default function Home() {
                                 {allPlayers?.map((p) => (
                                     <div key={p.id}>
                                         <PlayerCard
+                                            id={p.id}
                                             imgSRC={p.profile_image}
                                             playerName={p.name}
                                             playerPosition={p.cat_name}

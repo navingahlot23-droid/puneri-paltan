@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPlayers, fetchAllPlayers } from "../action/player.action";
+import { fetchPlayers, fetchAllPlayers, fetchSinglePlayer } from "../action/player.action";
 
 const initialState = {
   playersByCategory: {},   // <-- IMPORTANT
   allPlayers: [],
+  singlePlayer: null,
   loading: false,
   error: null
 };
@@ -36,8 +37,23 @@ const playerSlice = createSlice({
       .addCase(fetchAllPlayers.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchSinglePlayer.pending, (state) => {
+        state.loading = true;
+        state.singlePlayer = null;
+        state.error = null;
+      })
+      .addCase(fetchSinglePlayer.fulfilled, (state, action) => {
+        state.loading = false;
+        state.singlePlayer = action.payload;
+      })
+      .addCase(fetchSinglePlayer.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   }
 });
 
-export default playerSlice.reducer;
+const playerReducer = playerSlice.reducer;
+
+export default playerReducer;

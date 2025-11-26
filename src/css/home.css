@@ -85,16 +85,6 @@
   margin-top: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .slick-track {
-    display: flex !important;
-  }
-
-  .slick-slide {
-    height: inherit !important;
-  }
-}
-
 @media screen and (min-width: 768px) and (max-width: 1199px) {
     .player-section  .player-box .name {
         font-size: 20px;
@@ -108,14 +98,6 @@
 
 
 @media screen and (max-width: 767px) {
- 
-  .player-section .slick-prev {
-    right: 50%;
-  }
-  .player-section .slick-next {
-    right: 35%;
-  }
-
   .player-section  .player-box .name,  .player-section .slick-current .player-box .name {
     font-size: 20px;
   }

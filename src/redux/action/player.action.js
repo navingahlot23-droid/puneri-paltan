@@ -40,3 +40,19 @@ export const fetchPlayers = createAsyncThunk(
       }
     }
   );
+
+  export const fetchSinglePlayer = createAsyncThunk(
+    "players/fetchSingle",
+    async (id, { rejectWithValue }) => {
+      try {
+        const response = await api.get(`/single_player?id=${id}`);
+  
+        // response.data is an ARRAY → return first object
+        return response.data[0];
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    }
+  );
+  
+  

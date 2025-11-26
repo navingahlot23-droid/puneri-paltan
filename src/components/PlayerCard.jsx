@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
-export default function PlayerCard({ imgSRC, playerName, playerPosition, className, aos }) {
+export default function PlayerCard({id, imgSRC, playerName, playerPosition, className, aos }) {
+   
     return (
         <>
             <div className={`player-box text-center ${className}`} data-aos={aos}>
-                <Link to="#">
+                <Link to={`/players/${id}`}>
                     <div className="player-img">
                         <img src={imgSRC} alt={playerName} />
                     </div>

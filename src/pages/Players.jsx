@@ -48,21 +48,31 @@ export default function Players() {
 
                 <div className="raiders-section  pb-[30px] xl:pb-[110px]">
                     <div className="px-[15px]">
-                        <Sectiontitle name="Raiders" aos="fade-right"/>
+                        <Sectiontitle name="Raiders" aos="fade-right" />
                         <div className="xl:mx-[170px] flex flex-wrap justify-center gap-[15px]">
-                            {playersByCategory[1]?.map(p => (
-                                <PlayerCard key={p.id} imgSRC={p.profile_image} playerName={p.name} playerPosition={p.cat_name} className="lg:w-[31.33%] md:w-[48%] w-full" aos="fade-up"/>
-                            ))}
+                            {playersByCategory[1]?.map(p => {
+                                return (
+                                    <PlayerCard
+                                        key={p.id}
+                                        id={p.id}
+                                        imgSRC={p.profile_image}
+                                        playerName={p.name}
+                                        playerPosition={p.cat_name}
+                                        className="lg:w-[31.33%] md:w-[48%] w-full"
+                                        aos="fade-up"
+                                    />
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
 
                 <div className="defenders-section bg-white pb-[30px] xl:pb-[110px]">
                     <div className="px-[15px]">
-                        <Sectiontitle name="Defenders" aos="fade-right"/>
+                        <Sectiontitle name="Defenders" aos="fade-right" />
                         <div className="xl:mx-[170px] flex flex-wrap justify-center gap-[15px]">
                             {playersByCategory[2]?.map(p => (
-                                <PlayerCard key={p.id} imgSRC={p.profile_image} playerName={p.name} playerPosition={p.cat_name} className="lg:w-[31.33%] md:w-[48%] w-full" aos="fade-up"/>
+                                <PlayerCard key={p.id} id={p.id} imgSRC={p.profile_image} playerName={p.name} playerPosition={p.cat_name} className="lg:w-[31.33%] md:w-[48%] w-full" aos="fade-up" />
                             ))}
                         </div>
                     </div>
@@ -70,10 +80,10 @@ export default function Players() {
 
                 <div className="all-rounders-section  pb-[30px] xl:pb-[110px]">
                     <div className="px-[15px]">
-                        <Sectiontitle name="All Rounders" aos="fade-right"/>
+                        <Sectiontitle name="All Rounders" aos="fade-right" />
                         <div className="xl:mx-[170px] flex flex-wrap justify-center gap-[15px]">
                             {playersByCategory[3]?.map(p => (
-                                <PlayerCard key={p.id} imgSRC={p.profile_image} playerName={p.name} playerPosition={p.cat_name} className="lg:w-[31.33%] md:w-[48%] w-full" aos="fade-up"/>
+                                <PlayerCard key={p.id} id={p.id} imgSRC={p.profile_image} playerName={p.name} playerPosition={p.cat_name} className="lg:w-[31.33%] md:w-[48%] w-full" aos="fade-up" />
                             ))}
                         </div>
                     </div>
