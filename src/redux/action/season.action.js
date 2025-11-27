@@ -58,12 +58,15 @@ export const fetchSeason = createAsyncThunk(
 
   export const fetchGalleryGateways = createAsyncThunk(
     "season/fetchGalleryGateways",
-    async (_, { rejectWithValue }) => {
+    async (currentId, { rejectWithValue }) => {
       try {
-        const ids = [1, 2]; // two gallery IDs
+        const cid = Number(currentId);
+  
+        // example: previous + next
+        const dynamicIds = [cid - 1, cid + 1].filter(n => n > 0);
   
         const responses = await Promise.all(
-          ids.map(id => api.get(`/single_gallary?id=${id}`))
+          dynamicIds.map(id => api.get(`/single_gallary?id=${id}`))
         );
   
         return responses.map(r => r.data);
@@ -72,3 +75,4 @@ export const fetchSeason = createAsyncThunk(
       }
     }
   );
+  

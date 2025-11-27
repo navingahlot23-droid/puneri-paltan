@@ -2,9 +2,6 @@
   transform: scale(0.9);
 }
 
-.other-players-section .slick-slide.slick-current.slick-active .player-box {
-  box-shadow: -50px 0 80px #141616;
-}
 
 .other-players-section .slick-prev,
 .other-players-section .slick-next {
@@ -27,4 +24,10 @@
 .other-players-section .slick-next:before {
   color: #f40;
   font-size: 30px;
+}
+
+@media screen and (max-width:991px) {
+  .player-img, .other-players-section .player-box img {
+    transform: scale(0.75);
+  }
 }

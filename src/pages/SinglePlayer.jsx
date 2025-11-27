@@ -123,7 +123,7 @@ export default function SinglePlayer() {
                                 <div className="xl:col-span-4 col-span-12">
                                     <Sectiontitle name="overall" className="py-[21px]!" />
                                 </div>
-                                <div className="col-span-12 md:col-span-3 xl:col-span-2 z-99">
+                                <div className="col-span-12 md:col-span-3 xl:col-span-2 z-9">
                                     <h4 className="overall-points mx-auto lg:mt-[30px] max-[767px]:mt-2.5 bg-white text-black text-center leading-[110%] font-[Exo-SemiBold] w-[150px] text-[40px] py-2.5" data-aos="zoom-in">{singlePlayer.Matches_played}</h4>
                                     <h5 className="overall-desc my-3 leading-[110%] font-[Exo-Regular] text-black uppercase text-center text-[18px] tracking-[1px]">Matches played</h5>
                                 </div>
@@ -226,11 +226,11 @@ export default function SinglePlayer() {
                             <Slider key={bp} {...settings} className="lg:skew-x-[-5deg]">
                                 {allPlayers?.map((p) => (
                                     <div key={p.id}>
-                                        <div className="player-box relative bg-black xl:h-[400px] px-[15px] flex items-center">
+                                        <div className="player-box relative bg-black xl:h-[400px] px-[15px] flex items-center xl:border-r xl:border-r-gray-900">
                                             <Link to={`/players/${p.id}`}>
                                                 <p className="player-num absolute bg-primary-500 text-white top-0 left-0 py-[18px] px-2.5 font-[Exo-Regular] text-[30px] xl:text-[50px] tracking-[2px]">{p.jersey_no}</p>
                                                 <div className="grid grid-cols-12 items-center h-full gap-[15px]">
-                                                    <div className="md:col-span-6 col-span-12 lg:skew-x-[5deg]  max-[767px]:mb-5 max-[767px]:mt-[100px]">
+                                                    <div className="md:col-span-6 col-span-12 lg:skew-x-[5deg] max-[767px]:mt-[100px]">
                                                         <h5 className="name font-[Exo-Bold] text-white text-[34px] m-0 tracking-[4px] text-center leading-[110%]">{p.name}</h5>
                                                         <h5 className="position font-[Exo-Regular] text-primary-500 text-[20px] m-0 tracking-[2px] text-center leading-[110%]">{p.cat_name}</h5>
                                                     </div>

@@ -16,7 +16,7 @@ export default function SingleGallery() {
     const { singleGallery, galleryGateways, loading, error } = useSelector((state) => state.season);
 
     useEffect(() => {
-        dispatch(fetchGalleryGateways());
+        dispatch(fetchGalleryGateways(id));
         if (id) dispatch(fetchSingleGallery(id));
     }, [id, dispatch]);
 
@@ -82,22 +82,33 @@ export default function SingleGallery() {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:flex md:flex-nowrap">
-                            {galleryGateways?.map((item) => (
-                                <div key={item.id} className="md:w-1/2">
-                                    <Link
-                                        to={`/gallery/${item.id}`}
-                                        className="h-[300px] flex items-center justify-center bg-cover bg-no-repeat relative 
-                before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-black/50"
-                                        style={{ backgroundImage: `url(${item.main_image})` }}
-                                    >
-                                        <h3 className="text-white font-[Exo-Regular] tracking-[1px] uppercase z-[999] text-[20px] md:text-[26px] relative leading-[110%] text-center">
-                                            {item.name}
-                                        </h3>
-                                    </Link>
-                                </div>
-                            ))}
-                        </div>
+                       
+                        {galleryGateways
+  ?.filter(item => item?.id && item?.main_image)   // keep only valid items
+  .length > 0 && (
+    <div className="md:flex md:flex-nowrap gap-5">
+      {galleryGateways
+        .filter(item => item?.id && item?.main_image)
+        .map((item) => (
+          <div key={item.id} className="md:w-1/2">
+            <Link
+              to={`/gallery/${item.id}`}
+              className="h-[300px] flex items-center justify-center bg-cover bg-no-repeat relative 
+before:content-[''] before:absolute before:top-0 before:left-0 
+before:w-full before:h-full before:bg-black/50"
+              style={{ backgroundImage: `url(${item.main_image})` }}
+            >
+              <h3 className="text-white font-[Exo-Regular] tracking-[1px] uppercase 
+z-[999] text-[20px] md:text-[26px] relative leading-[110%] text-center">
+                {item.name}
+              </h3>
+            </Link>
+          </div>
+        ))}
+    </div>
+)}
+
+
                     </>
                 )}
 
