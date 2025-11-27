@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchSeason, fetchSeasonContent, fetchSeasonGallery } from "../action/season.action";
+import { fetchSeason, fetchSeasonContent, fetchSeasonGallery, fetchSingleGallery, fetchGalleryGateways } from "../action/season.action";
 
 const initialState = {
     allSeason: [],
     seasonContent: [],
     gallery:[],
+    singleGallery:null,
+    galleryGateways: [],
     loading: false,
     error: null
 }
@@ -46,6 +48,20 @@ const seasonSlice = createSlice({
       })
       .addCase(fetchSeasonGallery.rejected, (state, action) => {
         state.loading = false;
+      })
+      .addCase(fetchSingleGallery.pending, (state) => {
+        state.loading = true;
+        state.singleGallery = null;
+      })
+      .addCase(fetchSingleGallery.fulfilled, (state, action) => {
+        state.loading = false;
+        state.singleGallery = action.payload;
+      })
+      .addCase(fetchSingleGallery.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(fetchGalleryGateways.fulfilled, (state, action) => {
+        state.galleryGateways = action.payload;
       });
 
   }

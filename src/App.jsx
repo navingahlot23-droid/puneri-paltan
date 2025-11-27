@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import SinglePlayer from "./pages/SinglePlayer";
 import PuneriTV from "./pages/PuneriTV";
 import Gallery from "./pages/Gallery";
+import SingleGallery from "./pages/SingleGallery";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   useEffect(() => {
@@ -31,6 +33,8 @@ function App() {
         <Route path="/puneri-world" element={<PuneriWorld />} />
         <Route path="/puneri-tv" element={<PuneriTV />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery/:id" element={<SingleGallery />} />
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
       <Footer />
     </>

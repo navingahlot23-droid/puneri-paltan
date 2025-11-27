@@ -50,7 +50,7 @@ export default function PuneriTV() {
                                     <h1 className="font-[Love-Nature] text-white md:text-[50px]  lg:text-[80px] lg:top-[40%] lg:left-[18%]  tracking-[10px] [text-shadow:-2px_0_24px_#000] absolute" data-aos="fade-down">Puneri TV</h1>
                                 </div>
                             </div>
-                            <div className="col-span-4 hidden lg:block">
+                            <div className="col-span-5 hidden lg:block">
                                 <div className="flex h-[700px] items-end">
                                     <img src={bannerPlayer} alt="Banner Player" data-aos="fade-up" />
                                 </div>

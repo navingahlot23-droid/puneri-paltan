@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { fetchSeason, fetchSeasonGallery } from "../redux/action/season.action";
 import { useDispatch, useSelector } from "react-redux";
 import Sectiontitle from "../components/SectionTitle";
@@ -47,7 +48,7 @@ export default function Gallery() {
                                     <h1 className="font-[Love-Nature] text-white md:text-[50px]  lg:text-[80px] lg:top-[40%] lg:left-[18%]  tracking-[10px] [text-shadow:-2px_0_24px_#000] absolute" data-aos="fade-down">Gallery</h1>
                                 </div>
                             </div>
-                            <div className="col-span-4 hidden lg:block">
+                            <div className="col-span-5 hidden lg:block">
                                 <div className="flex h-[700px] items-end">
                                     <img src={bannerPlayer} alt="Banner Player" data-aos="fade-up" />
                                 </div>
@@ -94,6 +95,7 @@ export default function Gallery() {
                                     <div key={item.id} className="md:w-[47.5%]">
                                         {item.name ?
                                             <>
+                                            <Link to={`/gallery/${item.id}`}>
                                                 <div className="video-box">
                                                     <div className="relative">
                                                         <img src={item.main_image} className="w-full" alt={item.name}/>
@@ -101,6 +103,7 @@ export default function Gallery() {
                                                     </div>
                                                     <Sectiontitle name={item.name} className="py-0!" titleClassName="text-[18px]! font-[Exo-Regular]! text-left! capitalize! w-[80%]! line-clamp-2 leading-[1.4] h-[65px]! py-[10px]! overflow-visible mt-[10px] skew-x-[0deg]! ml-0! max-[767px]:text-[16px]! max-[767px]:h-[58px]! max-[767px]:w-[80%]!" />
                                                 </div>
+                                                </Link>
                                             </>
                                             :
                                             <p className="text-md font-bold">No Data Available.</p>
