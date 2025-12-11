@@ -17,18 +17,13 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const navigation = [
         {
+            name: 'Home',
+            href: '/',
+            target: "_self"
+        },
+        {
             name: 'Players',
             href: '/players',
-            target: "_self"
-        },
-        {
-            name: 'Standings',
-            href: 'javascript:void(0)',
-            target: "_self"
-        },
-        {
-            name: 'Fixtures',
-            href: 'javascript:void(0)',
             target: "_self"
         },
         {
