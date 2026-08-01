@@ -109,7 +109,7 @@ export default function Home() {
                                 ))}
                             </Slider>
                             <Link to="/players">
-                                <Button text="Enter" />
+                                <Button text="Enter"/>
                             </Link>
                         </div>
                     </div>

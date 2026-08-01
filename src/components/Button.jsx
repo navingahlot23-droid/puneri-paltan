@@ -20,7 +20,7 @@ export default function Button({ text, children, className }) {
           cursor-pointer
           md:leading-[1.42857143]
           leading-normal
-          ${className}
+          ${className ? ` ${className}`: ''}
         `}
       >
         {text} {children}
